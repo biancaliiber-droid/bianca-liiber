@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesquisa - Qualidade de Vida</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0ebf8;
+    color: #333;
+}
+
+.container {
+    max-width: 680px;
+    margin: 35px auto;
+    padding: 15px;
+}
+
+.header {
+    background: white;
+    border-radius: 10px;
+    border-top: 10px solid #7654a5;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.header h1 {
+    font-size: 27px;
+    margin-top: 5px;
+}
+
+.header p {
+    line-height: 1.6;
+}
+
+.question {
+    background: white;
+    border-radius: 10px;
+    padding: 23px;
+    margin-bottom: 15px;
+}
+
+.question h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    outline: none;
+    font-size: 15px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.option {
+    display: block;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.option input {
+    margin-right: 10px;
+    accent-color: #7654a5;
+}
+
+button {
+    background: #7654a5;
+    color: white;
+    border: none;
+    padding: 13px 28px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #604187;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin: 25px;
+}
+
+#resultado {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<form id="formulario">
+
+<div class="header">
+    <h1>🌿 Qualidade de Vida</h1>
+    <p>
+    Olá! Este formulário tem como objetivo conhecer
+    os hábitos e opiniões das pessoas sobre qualidade
+    de vida, saúde e bem-estar.
+    </p>
+    <p>Responda às perguntas com sinceridade. Sua participação é muito importante!</p>
+    <small>* Perguntas obrigatórias</small>
+</div>
+
+<div class="question">
+    <h3>1. Qual é o seu nome?</h3>
+    <input type="text" name="nome" placeholder="Sua resposta" required>
+</div>
+
+<div class="question">
+    <h3>2. Qual é a sua idade?</h3>
+    <input type="number" name="idade" min="1" placeholder="Sua idade" required>
+</div>
+
+<div class="question">
+    <h3>3. Como você considera sua qualidade de vida?</h3>
+    <label class="option"><input type="radio" name="qualidade" value="Ótima" required> Ótima</label>
+    <label class="option"><input type="radio" name="qualidade" value="Boa"> Boa</label>
+    <label class="option"><input type="radio" name="qualidade" value="Regular"> Regular</label>
+    <label class="option"><input type="radio" name="qualidade" value="Ruim"> Ruim</label>
+</div>
+
+<div class="question">
+    <h3>4. Você pratica atividades físicas?</h3>
+    <label class="option"><input type="radio" name="exercicio" value="Sim, diariamente" required> Sim, diariamente</label>
+    <label class="option"><input type="radio" name="exercicio" value="Algumas vezes na semana"> Algumas vezes na semana</label>
+    <label class="option"><input type="radio" name="exercicio" value="Raramente"> Raramente</label>
+    <label class="option"><input type="radio" name="exercicio" value="Nunca"> Nunca</label>
+</div>
+
+<div class="question">
+    <h3>5. Como você considera sua alimentação?</h3>
+    <label class="option"><input type="radio" name="alimentacao" value="Muito saudável" required> Muito saudável</label>
+    <label class="option"><input type="radio" name="alimentacao" value="Saudável"> Saudável</label>
+    <label class="option"><input type="radio" name="alimentacao" value="Pouco saudável"> Pouco saudável</label>
+    <label class="option"><input type="radio" name="alimentacao" value="Nada saudável"> Nada saudável</label>
+</div>
+
+<div class="question">
+    <h3>6. Quantas horas você costuma dormir por noite?</h3>
+    <label class="option"><input type="radio" name="sono" value="Menos de 5 horas" required> Menos de 5 horas</label>
+    <label class="option"><input type="radio" name="sono" value="5 a 6 horas"> 5 a 6 horas</label>
+    <label class="option"><input type="radio" name="sono" value="7 a 8 horas"> 7 a 8 horas</label>
+    <label class="option"><input type="radio" name="sono" value="Mais de 8 horas"> Mais de 8 horas</label>
+</div>
+
+<div class="question">
+    <h3>7. Você costuma se sentir estressado(a)?</h3>
+    <label class="option"><input type="radio" name="estresse" value="Sempre" required> Sempre</label>
+    <label class="option"><input type="radio" name="estresse" value="Às vezes"> Às vezes</label>
+    <label class="option"><input type="radio" name="estresse" value="Raramente"> Raramente</label>
+    <label class="option"><input type="radio" name="estresse" value="Nunca"> Nunca</label>
+</div>
+
+<div class="question">
+    <h3>8. Você considera importante cuidar da saúde mental?</h3>
+    <label class="option"><input type="radio" name="mental" value="Sim" required> Sim</label>
+    <label class="option"><input type="radio" name="mental" value="Não"> Não</label>
+    <label class="option"><input type="radio" name="mental" value="Talvez"> Talvez</label>
+</div>
+
+<div class="question">
+    <h3>9. O que você acredita que poderia melhorar sua qualidade de vida?</h3>
+    <textarea name="melhoria" rows="3" placeholder="Escreva sua resposta..." required></textarea>
+</div>
+
+<div class="question">
+    <h3>10. Deixe uma sugestão para melhorar a qualidade de vida das pessoas:</h3>
+    <textarea name="sugestao" rows="3" placeholder="Sua resposta..." required></textarea>
+</div>
+
+<button type="submit">Enviar respostas</button>
+
+</form>
+
+<div id="resultado">
+    <h2>✅ Resposta enviada!</h2>
+    <p>Obrigado por participar da nossa pesquisa sobre qualidade de vida!</p>
+</div>
+
+<div class="footer">
+    Pesquisa sobre Qualidade de Vida • Obrigado pela participação!
+</div>
+
+</div>
+
+<script>
+document.getElementById("formulario").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const dados = new FormData(this);
+    const respostas = Object.fromEntries(dados.entries());
+
+    let anteriores = JSON.parse(localStorage.getItem("respostas") || "[]");
+    anteriores.push(respostas);
+
+    localStorage.setItem("respostas", JSON.stringify(anteriores));
+
+    this.style.display = "none";
+    document.getElementById("resultado").style.display = "block";
+
+    window.scrollTo(0, 0);
+});
+</script>
+
+</body>
+</html>
